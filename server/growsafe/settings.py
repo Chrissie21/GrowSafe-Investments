@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-!qca4hv91sa1)ws@l+lzow9qvcu6hp=*43eax4*0+np&$cbktx"
+SECRET_KEY = "django-insecure-r@zy2gyxs+brk8jx%a8*n%x8g0l)@0ddv#^=9n!@x4&*x(_k+e"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "core",
-    "rest_framework_simplejwt",
+    "core"
 ]
 
 MIDDLEWARE = [
@@ -78,12 +77,8 @@ WSGI_APPLICATION = "growsafe.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "growsafe_db",
-        "USER": "growsafe_user",
-        'PASSWORD': 'your_secure_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -128,11 +123,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-MPESA_CONSUMER_KEY = "btJDBIYqztlhyh7RX6Httu3sCPwFQ2o5PNNpF17aff0O2sF8"  # From Safaricom sandbox
-MPESA_CONSUMER_SECRET = "Bf4X7hBabg6lxN2jBwuncGwGtcIpHBN4AZoMu8jheZv6KKvxTOTgwHYgxwcYZHTA"  # From Safaricom sandbox
-MPESA_SHORTCODE = "174379"  # Sandbox default
-MPESA_PASSKEY = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"  # Sandbox default
-MPESA_CALLBACK_URL = "https://xyz123.ngrok-free.app/callback/"
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "xyz123.ngrok-free.app"]
