@@ -11,3 +11,4 @@ env/
 venv.bak/
 *.log
 *.sqlite3
+echo "config.py" >> .gitignore

@@ -1,16 +1,20 @@
-# growsafe_backend/settings.py
-import environ
+# growsafe/settings.py
 import os
-
-# Initialize environment variables
-env = environ.Env()
-environ.Env.read_env()
+from config import (
+    SECRET_KEY,
+    DATABASES,
+    AZAMPAY_CLIENT_ID,
+    AZAMPAY_CLIENT_SECRET,
+    AZAMPAY_APP_NAME,
+    AZAMPAY_CALLBACK_URL,
+)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY is now imported from config.py
+print("SECRET_KEY from config:", SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'growsafe_backend.urls'
+ROOT_URLCONF = 'growsafe.urls'
 
 TEMPLATES = [
     {
@@ -57,12 +61,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'growsafe_backend.wsgi.application'
+WSGI_APPLICATION = 'growsafe.wsgi.application'
 
 # Database
-DATABASES = {
-    'default': env.db('DATABASE_URL')
-}
+# DATABASES is now imported from config.py
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -93,7 +95,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AzamPay settings
-AZAMPAY_CLIENT_ID = env('AZAMPAY_CLIENT_ID')
-AZAMPAY_CLIENT_SECRET = env('AZAMPAY_CLIENT_SECRET')
-AZAMPAY_APP_NAME = env('AZAMPAY_APP_NAME')
-AZAMPAY_CALLBACK_URL = env('AZAMPAY_CALLBACK_URL')
+# Currently imported from config.py
